@@ -26,8 +26,10 @@ def handle_file(file):
         f.write(contents)
 
 
-if(len(sys.argv)>2):
-    datapath = sys.argv[1]
+#print(len(sys.argv))
+if(len(sys.argv)==3):
+    datapath = sys.argv[2]
+    output_file = sys.argv[3]
 
 desktop = pathlib.Path(datapath)
 
