@@ -10,13 +10,11 @@ from flask_cors import CORS, cross_origin
 # import tiktoken
 # from model import GPTConfig, GPT
 
-
-
 app = Flask(__name__)
 # cors = CORS(app)
 # app.config['CORS_HEADERS'] = 'Content-Type'
 
-out_dir = "/data/discord/out-discord-dir"
+out_dir = "model/out-discord-dir"
 
 
 # needs to be given the start string 
@@ -89,8 +87,7 @@ def helper(start:str, out_dir):
 def home():
     if(request.method == 'POST'):
         data = request.get_json()
-
-    return "hi"
-
+        output = helper(data["question"], out_dir)
+        return output[0]
 
 app.run(port=5000)
